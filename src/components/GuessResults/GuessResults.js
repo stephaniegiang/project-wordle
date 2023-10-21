@@ -1,10 +1,11 @@
 import React from 'react';
+import GuessCells from '../GuessCells/GuessCells';
 
 function GuessResults({ guessList }) {
   return (
     <div className="guess-results">
       {guessList.map((guess, index) => (
-        <p key={index} className="guess">{guess}</p>
+        <GuessCells guess={guess} id={index} />
       ))}
     </div>
   );

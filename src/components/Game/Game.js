@@ -2,6 +2,8 @@ import React from 'react';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
+import { range } from '../../utils';
+import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 
 import GuessForm from '../GuessForm'
 import GuessResults from '../GuessResults/GuessResults';
@@ -13,11 +15,17 @@ console.info({ answer });
 
 
 function Game() {
-  const [guessList, setGuessList] = React.useState([])
+  const [guessList, setGuessList] = React.useState(range(NUM_OF_GUESSES_ALLOWED).map(() => ""))
+  const [guessListIndex, setGuessListIndex] = React.useState(0)
 
   function addToGuessList(guess) {
+    if (guessListIndex == NUM_OF_GUESSES_ALLOWED) {
+      return window.alert("No more guesses allowed")
+    }
+
     const newGuessList = [...guessList]
-    newGuessList.push(guess)
+    newGuessList[guessListIndex] = guess
+    setGuessListIndex(guessListIndex + 1)
     setGuessList(newGuessList)
   }
   return (
