@@ -13,17 +13,17 @@ console.info({ answer });
 
 
 function Game() {
-  const [guesses, setGuesses] = React.useState([])
+  const [guessList, setGuessList] = React.useState([])
 
-  function addGuess(guess) {
-    const newGusses = [...guesses]
-    newGusses.push(guess)
-    setGuesses(newGusses)
+  function addToGuessList(guess) {
+    const newGuessList = [...guessList]
+    newGuessList.push(guess)
+    setGuessList(newGuessList)
   }
   return (
     <>
-      <GuessResults guesses={guesses} />
-      <GuessForm addGuess={addGuess} />
+      <GuessResults guessList={guessList} />
+      <GuessForm addToGuessList={addToGuessList} />
     </>
   )
 }
