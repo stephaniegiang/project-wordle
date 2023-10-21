@@ -5,7 +5,7 @@ function GuessResults({ guessList }) {
   return (
     <div className="guess-results">
       {guessList.map((guess, index) => (
-        <GuessCells guess={guess} id={index} />
+        <GuessCells guess={guess} key={index} />
       ))}
     </div>
   );
