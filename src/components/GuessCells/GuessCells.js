@@ -3,7 +3,7 @@ import { range } from '../../utils';
 import { checkGuess } from '/src/game-helpers.js'
 
 function GuessCells({guess, answer}) {
-  const results = guess ? checkGuess(guess, answer) : undefined
+  const results = checkGuess(guess, answer)
 
   function className(index) {
     if (!results) {
